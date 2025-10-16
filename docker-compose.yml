@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.1
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ums_db
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      - mysql
+    environment:
+      DB_USER: root
+      DB_PASS: password
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  db_data:
