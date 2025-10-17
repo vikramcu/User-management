@@ -1,0 +1,3 @@
+com\example\ums\model\User.class
+com\example\ums\repository\UserRepository.class
+com\example\ums\UmsApplication.class
