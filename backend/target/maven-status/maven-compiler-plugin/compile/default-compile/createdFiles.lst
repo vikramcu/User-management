@@ -1,3 +1,6 @@
+com\example\ums\config\SecurityConfig.class
+com\example\ums\controller\UserController.class
 com\example\ums\model\User.class
-com\example\ums\repository\UserRepository.class
 com\example\ums\UmsApplication.class
+com\example\ums\controller\HomeController.class
+com\example\ums\repository\UserRepository.class
